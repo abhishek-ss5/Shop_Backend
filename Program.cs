@@ -56,9 +56,13 @@ if (app.Environment.IsDevelopment())
 // Step 2: Use CORS policy in your app.
 app.UseCors("AllowSpecificOrigin");
 
+// Conditionally use HTTPS redirection based on the environment
+if (!app.Environment.IsDevelopment())  // Disable for production if Render handles HTTPS
+{
+    app.UseHttpsRedirection();
+}
 
-
-app.UseHttpsRedirection();
+// app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
 
@@ -70,3 +74,4 @@ var port = Environment.GetEnvironmentVariable("PORT") ?? "5000";
 app.Urls.Add($"http://0.0.0.0:{port}");
 
 app.Run();
+
