@@ -29,7 +29,7 @@ builder.Services.AddCors(options =>
 
 
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseNpgsql("Host=dpg-d05j1ca4d50c73f2opkg-a.singapore-postgres.render.com;Port=5432;Database=shop_db_frsc;Username=abhishek;Password=voUt0e1Kha4pvQsKupY8Wt6eEeQ1F3Ry;SSL Mode=Require;Trust Server Certificate=true;"));
 
 AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 
