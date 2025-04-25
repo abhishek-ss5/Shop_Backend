@@ -64,4 +64,9 @@ app.MapControllers();
 
 app.MapGet("/", () => "Hello World !!");
 
+
+// ✅ Important Step: Bind to 0.0.0.0 and dynamic PORT
+var port = Environment.GetEnvironmentVariable("PORT") ?? "5000";
+app.Urls.Add($"http://0.0.0.0:{port}");
+
 app.Run();
